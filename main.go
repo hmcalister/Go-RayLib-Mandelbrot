@@ -27,7 +27,6 @@ func main() {
 		rl.BeginDrawing()
 		rl.ClearBackground(rl.Black)
 
-		rl.DrawText("Congrats! You created your first window!", 190, 200, 20, rl.LightGray)
 
 		rl.EndDrawing()
 	}
