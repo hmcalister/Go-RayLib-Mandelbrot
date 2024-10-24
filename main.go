@@ -34,7 +34,7 @@ func main() {
 		0.0,
 		200.0,
 	}
-	drawTexture := drawMandelbrot(param)
+	drawTexture := createMandelbrotTexture(param)
 
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
