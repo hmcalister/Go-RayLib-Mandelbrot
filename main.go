@@ -6,6 +6,11 @@ import (
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
+const (
+	WINDOW_WIDTH  int32 = 800
+	WINDOW_HEIGHT int32 = 450
+)
+
 func main() {
 	rlLogLevelFlag := flag.String("rlLogLevel", "none", "Set the raylib log level. Valid values are: fatal, error, warning, info, debug, trace, none.")
 	slogLevelFlag := flag.String("slogLevel", "none", "Set the slog level. Valid values are: fatal, error, warning, info, debug, trace, none.")
