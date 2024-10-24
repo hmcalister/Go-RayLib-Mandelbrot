@@ -8,9 +8,10 @@ import (
 )
 
 const (
-	WINDOW_WIDTH  int32   = 800
-	WINDOW_HEIGHT int32   = 600
-	ZOOM_FACTOR   float64 = 1.25
+	WINDOW_WIDTH            int32   = 800
+	WINDOW_HEIGHT           int32   = 600
+	ZOOM_FACTOR             float64 = 1.25
+	ITERATION_CHANGE_FACTOR float64 = 1.5
 )
 
 type drawParameters struct {
@@ -93,11 +94,11 @@ func main() {
 
 		// Handle increases in iterations
 		if rl.IsKeyPressed(rl.KeyUp) {
-			params.maxIterations = min(int(float64(params.maxIterations)*1.5), 10000)
+			params.maxIterations = min(int(float64(params.maxIterations)*ITERATION_CHANGE_FACTOR), 10000)
 			drawTexture = createMandelbrotTexture(params)
 		}
 		if rl.IsKeyPressed(rl.KeyDown) {
-			params.maxIterations = max(int(float64(params.maxIterations)/1.5), 100)
+			params.maxIterations = max(int(float64(params.maxIterations)/ITERATION_CHANGE_FACTOR), 100)
 			drawTexture = createMandelbrotTexture(params)
 		}
 
