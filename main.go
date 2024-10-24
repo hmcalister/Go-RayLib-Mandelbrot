@@ -41,6 +41,7 @@ func main() {
 		rl.BeginDrawing()
 		rl.ClearBackground(rl.Black)
 
+		// TODO: Handle user input and redraw image
 
 		rl.DrawTexture(drawTexture, 0, 0, rl.White)
 
