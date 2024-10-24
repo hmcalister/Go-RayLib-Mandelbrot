@@ -90,6 +90,16 @@ func main() {
 			drawTexture = createMandelbrotTexture(params)
 		}
 
+		// Handle increases in iterations
+		if rl.IsKeyPressed(rl.KeyUp) {
+			params.maxIterations = min(int(float64(params.maxIterations)*1.5), 10000)
+			drawTexture = createMandelbrotTexture(params)
+		}
+		if rl.IsKeyPressed(rl.KeyDown) {
+			params.maxIterations = max(int(float64(params.maxIterations)/1.5), 100)
+			drawTexture = createMandelbrotTexture(params)
+		}
+
 		rl.DrawTexture(drawTexture, 0, 0, rl.White)
 
 		rl.EndDrawing()
