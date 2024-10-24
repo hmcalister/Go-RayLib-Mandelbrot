@@ -5,13 +5,15 @@ import rl "github.com/gen2brain/raylib-go/raylib"
 func drawMandelbrot(params drawParameters) *rl.Image {
 	maxIterations := 100
 
+	image := rl.GenImageColor(int(WINDOW_WIDTH), int(WINDOW_HEIGHT), rl.Black)
+
 	var pixelX int32
 	var pixelY int32
 	for pixelX = 0; pixelX < WINDOW_WIDTH; pixelX += 1 {
 		for pixelY = 0; pixelY < WINDOW_HEIGHT; pixelY += 1 {
 			pixelComplex := ComplexNumber{
-				(centerX + float64(pixelX) - float64(WINDOW_WIDTH)/2) / zoom,
-				(centerY + float64(pixelY) - float64(WINDOW_HEIGHT)/2) / zoom,
+				(params.centerX + float64(pixelX) - float64(WINDOW_WIDTH)/2) / params.zoom,
+				(params.centerY + float64(pixelY) - float64(WINDOW_HEIGHT)/2) / params.zoom,
 			}
 
 			valueComplex := ComplexNumber{0, 0}
@@ -25,9 +27,9 @@ func drawMandelbrot(params drawParameters) *rl.Image {
 
 			colorLERP := uint8(255 * iterationIndex / maxIterations)
 			color := rl.NewColor(colorLERP, colorLERP, colorLERP, 255)
-			rl.DrawPixel(pixelX, pixelY, color)
-
+			rl.ImageDrawPixel(image, pixelX, pixelY, color)
 		}
 	}
 
+	return image
 }
