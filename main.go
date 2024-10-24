@@ -34,6 +34,9 @@ func main() {
 		0.0,
 		200.0,
 	}
+	image := drawMandelbrot(param)
+	drawTexture := rl.LoadTextureFromImage(image)
+
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
 		rl.ClearBackground(rl.Black)
