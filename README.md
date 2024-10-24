@@ -1,6 +1,6 @@
 # Go RayLib: Mandelbrot 
 
-A quick implementation of a visualization of the Mandelbrot set using Go and the [RayLib bindings](https://github.com/gen2brain/raylib-go). 
+A quick implementation of the Mandelbrot Set using Go and the [RayLib bindings](https://github.com/gen2brain/raylib-go). 
 
 Use the mouse to pan around, and scroll wheel to zoom. Arrow keys up / down will increase / decrease the number of iterations (resulting in a more detailed visualization, but slower computation of each texture).
 
