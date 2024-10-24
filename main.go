@@ -7,8 +7,9 @@ import (
 )
 
 const (
-	WINDOW_WIDTH  int32 = 800
-	WINDOW_HEIGHT int32 = 600
+	WINDOW_WIDTH  int32   = 800
+	WINDOW_HEIGHT int32   = 600
+	ZOOM_FACTOR   float64 = 1.25
 )
 
 type drawParameters struct {
