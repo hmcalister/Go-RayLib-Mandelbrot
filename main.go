@@ -41,7 +41,8 @@ func main() {
 		rl.BeginDrawing()
 		rl.ClearBackground(rl.Black)
 
-		drawMandelbrot(-200, 0.0, 200.0)
+
+		rl.DrawTexture(drawTexture, 0, 0, rl.White)
 
 		rl.EndDrawing()
 	}
