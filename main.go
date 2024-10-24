@@ -46,6 +46,9 @@ func main() {
 	}
 	drawTexture := createMandelbrotTexture(params)
 
+	leftMouseButtonPressed := false
+	lastMouseX := int32(0)
+	lastMouseY := int32(0)
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
 		rl.ClearBackground(rl.Black)
@@ -64,6 +67,26 @@ func main() {
 			}
 			params.centerX = mouseComplex.Re - (float64(mouseX)-float64(WINDOW_WIDTH)/2.0)/params.zoom
 			params.centerY = mouseComplex.Im - (float64(mouseY)-float64(WINDOW_HEIGHT)/2.0)/params.zoom
+			drawTexture = createMandelbrotTexture(params)
+		}
+
+		// Handle mouse panning
+		if rl.IsMouseButtonPressed(rl.MouseLeftButton) {
+			rl.DrawText("MOUSE", 100, 100, 20, rl.White)
+			leftMouseButtonPressed = true
+			lastMouseX = mouseX
+			lastMouseY = mouseY
+		}
+		if rl.IsMouseButtonReleased(rl.MouseLeftButton) {
+			leftMouseButtonPressed = false
+		}
+		if leftMouseButtonPressed {
+			deltaX := float64(lastMouseX - mouseX)
+			deltaY := float64(lastMouseY - mouseY)
+			params.centerX += deltaX / params.zoom
+			params.centerY += deltaY / params.zoom
+			lastMouseX = mouseX
+			lastMouseY = mouseY
 			drawTexture = createMandelbrotTexture(params)
 		}
 
