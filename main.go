@@ -13,9 +13,12 @@ const (
 )
 
 type drawParameters struct {
-	centerX float64
-	centerY float64
-	zoom    float64
+	centerX       float64
+	centerY       float64
+	zoom          float64
+	maxIterations int
+}
+
 func (params drawParameters) convertPixelToComplex(pixelX, pixelY int32) ComplexNumber {
 	return ComplexNumber{
 		params.centerX + (float64(pixelX)-float64(WINDOW_WIDTH)/2)/params.zoom,
