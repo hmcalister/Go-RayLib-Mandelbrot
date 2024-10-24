@@ -2,7 +2,7 @@ package main
 
 import rl "github.com/gen2brain/raylib-go/raylib"
 
-func drawMandelbrot(params drawParameters) *rl.Image {
+func drawMandelbrot(params drawParameters) rl.Texture2D {
 	maxIterations := 100
 
 	image := rl.GenImageColor(int(WINDOW_WIDTH), int(WINDOW_HEIGHT), rl.Black)
@@ -31,5 +31,6 @@ func drawMandelbrot(params drawParameters) *rl.Image {
 		}
 	}
 
-	return image
+	texture := rl.LoadTextureFromImage(image)
+	return texture
 }
