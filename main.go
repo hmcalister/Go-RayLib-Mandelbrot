@@ -25,7 +25,7 @@ func main() {
 
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
-		rl.ClearBackground(rl.RayWhite)
+		rl.ClearBackground(rl.Black)
 
 		rl.DrawText("Congrats! You created your first window!", 190, 200, 20, rl.LightGray)
 
