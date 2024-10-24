@@ -20,8 +20,8 @@ func createMandelbrotTexture(params drawParameters) rl.Texture2D {
 			iterationIndex := 0
 
 			// As soon as the magnitude is above 4, the product will diverge
-			for ComplexMagnitude(ComplexProduct(valueComplex, valueComplex)) < 4.0 && iterationIndex < maxIterations {
-				valueComplex = ComplexAddition(ComplexProduct(valueComplex, valueComplex), pixelComplex)
+			for valueComplex.Product(valueComplex).Magnitude() < 4.0 && iterationIndex < maxIterations {
+				valueComplex = valueComplex.Product(valueComplex).Add(pixelComplex)
 				iterationIndex += 1
 			}
 
