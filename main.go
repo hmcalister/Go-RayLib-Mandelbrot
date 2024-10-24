@@ -24,7 +24,7 @@ func main() {
 	flag.Parse()
 	setupLogging(*slogLevelFlag, *slogFormatFlag, *rlLogLevelFlag)
 
-	rl.InitWindow(800, 450, "raylib [core] example - basic window")
+	rl.InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Mandelbrot Set")
 	defer rl.CloseWindow()
 
 	rl.SetTargetFPS(60)
