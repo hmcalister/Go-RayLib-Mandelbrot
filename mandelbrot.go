@@ -2,7 +2,7 @@ package main
 
 import rl "github.com/gen2brain/raylib-go/raylib"
 
-func drawMandelbrot(centerX, centerY, zoom float64) {
+func drawMandelbrot(params drawParameters) *rl.Image {
 	maxIterations := 100
 
 	var pixelX int32
