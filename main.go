@@ -30,7 +30,7 @@ func main() {
 	rl.SetTargetFPS(60)
 
 	param := drawParameters{
-		-200.0,
+		-0.75,
 		0.0,
 		200.0,
 	}
