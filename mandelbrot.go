@@ -13,6 +13,7 @@ func createMandelbrotTexture(params drawParameters) rl.Texture2D {
 		for pixelY = 0; pixelY < WINDOW_HEIGHT; pixelY += 1 {
 			pixelComplex := ComplexNumber{
 				params.centerX + (float64(pixelX)-float64(WINDOW_WIDTH)/2)/params.zoom,
+				params.centerY + (float64(pixelY)-float64(WINDOW_HEIGHT)/2)/params.zoom,
 			}
 
 			valueComplex := ComplexNumber{0, 0}
