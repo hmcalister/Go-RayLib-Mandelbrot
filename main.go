@@ -30,12 +30,12 @@ func main() {
 
 	rl.SetTargetFPS(60)
 
-	param := drawParameters{
+	params := drawParameters{
 		-0.75,
 		0.0,
 		200.0,
 	}
-	drawTexture := createMandelbrotTexture(param)
+	drawTexture := createMandelbrotTexture(params)
 
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
