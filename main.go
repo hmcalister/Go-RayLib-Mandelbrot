@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
@@ -101,6 +102,10 @@ func main() {
 		}
 
 		rl.DrawTexture(drawTexture, 0, 0, rl.White)
+		rl.DrawText(
+			fmt.Sprintf("Center: %.5f %+.5fi\nMax Iterations: %d", params.centerX, params.centerY, params.maxIterations),
+			25, 25, 20, rl.DarkBlue,
+		)
 
 		rl.EndDrawing()
 	}
