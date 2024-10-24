@@ -50,7 +50,22 @@ func main() {
 		rl.BeginDrawing()
 		rl.ClearBackground(rl.Black)
 
-		// TODO: Handle user input and redraw image
+		mouseX := rl.GetMouseX()
+		mouseY := rl.GetMouseY()
+		scroll := rl.GetMouseWheelMove()
+
+		// Handle mouse scrolling zoom
+		if scroll != 0 {
+			mouseComplex := params.convertPixelToComplex(mouseX, mouseY)
+			if scroll > 0 {
+				params.zoom *= ZOOM_FACTOR
+			} else {
+				params.zoom /= ZOOM_FACTOR
+			}
+			params.centerX = mouseComplex.Re - (float64(mouseX)-float64(WINDOW_WIDTH)/2.0)/params.zoom
+			params.centerY = mouseComplex.Im - (float64(mouseY)-float64(WINDOW_HEIGHT)/2.0)/params.zoom
+			drawTexture = createMandelbrotTexture(params)
+		}
 
 		rl.DrawTexture(drawTexture, 0, 0, rl.White)
 
