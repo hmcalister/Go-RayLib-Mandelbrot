@@ -42,6 +42,7 @@ func main() {
 		-0.75,
 		0.0,
 		200.0,
+		100,
 	}
 	drawTexture := createMandelbrotTexture(params)
 
