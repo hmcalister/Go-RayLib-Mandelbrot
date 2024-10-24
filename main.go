@@ -11,6 +11,12 @@ const (
 	WINDOW_HEIGHT int32 = 450
 )
 
+type drawParameters struct {
+	centerX float64
+	centerY float64
+	zoom    float64
+}
+
 func main() {
 	rlLogLevelFlag := flag.String("rlLogLevel", "none", "Set the raylib log level. Valid values are: fatal, error, warning, info, debug, trace, none.")
 	slogLevelFlag := flag.String("slogLevel", "none", "Set the slog level. Valid values are: fatal, error, warning, info, debug, trace, none.")
@@ -23,6 +29,11 @@ func main() {
 
 	rl.SetTargetFPS(60)
 
+	param := drawParameters{
+		-200.0,
+		0.0,
+		200.0,
+	}
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
 		rl.ClearBackground(rl.Black)
