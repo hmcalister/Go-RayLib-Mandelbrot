@@ -29,6 +29,11 @@ func (params drawParameters) convertPixelToComplex(pixelX, pixelY int32) Complex
 }
 
 func main() {
+	flag.Usage = func() {
+		fmt.Fprintf(flag.CommandLine.Output(), "Welcome to the Mandelbrot Visualization using Go and RayLib!\nUse your mouse to pan, scroll to zoom, arrow up / down to increase / decrease the number of iterations, and 'H' to return to the home view.\n\nCommand Line Flags:\n")
+
+		flag.PrintDefaults()
+	}
 	rlLogLevelFlag := flag.String("rlLogLevel", "none", "Set the raylib log level. Valid values are: fatal, error, warning, info, debug, trace, none.")
 	slogLevelFlag := flag.String("slogLevel", "none", "Set the slog level. Valid values are: fatal, error, warning, info, debug, trace, none.")
 	slogFormatFlag := flag.String("slogFormat", "pretty", "Set the slog format. Valid values are: text, pretty, json.")
