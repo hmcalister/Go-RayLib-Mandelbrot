@@ -32,6 +32,7 @@ func main() {
 	rlLogLevelFlag := flag.String("rlLogLevel", "none", "Set the raylib log level. Valid values are: fatal, error, warning, info, debug, trace, none.")
 	slogLevelFlag := flag.String("slogLevel", "none", "Set the slog level. Valid values are: fatal, error, warning, info, debug, trace, none.")
 	slogFormatFlag := flag.String("slogFormat", "pretty", "Set the slog format. Valid values are: text, pretty, json.")
+	numWorkerRoutines := flag.Int("numWorkers", 1, "Set the number of worker goroutines to use when computing a new texture. A larger number will result in faster computations, but more resources used.")
 	flag.Parse()
 	setupLogging(*slogLevelFlag, *slogFormatFlag, *rlLogLevelFlag)
 
