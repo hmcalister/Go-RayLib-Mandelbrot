@@ -47,7 +47,7 @@ func main() {
 		200.0,
 		64,
 	}
-	drawTexture := createMandelbrotTexture(params)
+	drawTexture := createMandelbrotTexture(params, *numWorkerRoutines)
 
 	leftMouseButtonPressed := false
 	lastMouseX := int32(0)
@@ -70,7 +70,7 @@ func main() {
 			}
 			params.centerX = mouseComplex.Re - (float64(mouseX)-float64(WINDOW_WIDTH)/2.0)/params.zoom
 			params.centerY = mouseComplex.Im - (float64(mouseY)-float64(WINDOW_HEIGHT)/2.0)/params.zoom
-			drawTexture = createMandelbrotTexture(params)
+			drawTexture = createMandelbrotTexture(params, *numWorkerRoutines)
 		}
 
 		// Handle mouse panning
@@ -90,17 +90,17 @@ func main() {
 			params.centerY += deltaY / params.zoom
 			lastMouseX = mouseX
 			lastMouseY = mouseY
-			drawTexture = createMandelbrotTexture(params)
+			drawTexture = createMandelbrotTexture(params, *numWorkerRoutines)
 		}
 
 		// Handle increases in iterations
 		if rl.IsKeyPressed(rl.KeyUp) {
 			params.maxIterations = min(params.maxIterations*ITERATION_CHANGE_FACTOR, 16384)
-			drawTexture = createMandelbrotTexture(params)
+			drawTexture = createMandelbrotTexture(params, *numWorkerRoutines)
 		}
 		if rl.IsKeyPressed(rl.KeyDown) {
 			params.maxIterations = max(params.maxIterations/ITERATION_CHANGE_FACTOR, 64)
-			drawTexture = createMandelbrotTexture(params)
+			drawTexture = createMandelbrotTexture(params, *numWorkerRoutines)
 		}
 
 		rl.DrawTexture(drawTexture, 0, 0, rl.White)
