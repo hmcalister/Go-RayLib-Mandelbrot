@@ -103,6 +103,17 @@ func main() {
 			drawTexture = createMandelbrotTexture(params, *numWorkerRoutines)
 		}
 
+		// Handle going "home"
+		if rl.IsKeyPressed(rl.KeyH) {
+			params = drawParameters{
+				-0.75,
+				0.0,
+				200.0,
+				64,
+			}
+			drawTexture = createMandelbrotTexture(params, *numWorkerRoutines)
+		}
+
 		rl.DrawTexture(drawTexture, 0, 0, rl.White)
 		rl.DrawText(
 			fmt.Sprintf("Center: %.5f %+.5fi\nMax Iterations: %d", params.centerX, params.centerY, params.maxIterations),
